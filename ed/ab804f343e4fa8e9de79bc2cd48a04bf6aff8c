@@ -1,0 +1,30 @@
+src/usage.ts
+  s_0fd6c4e3e95c09::t_754b8460258230 284-288
+  s_0fd6c4e3e95c09::t_48411cb08fc375 6
+tests/usage.spec.ts
+  s_57ac80e17b3e8f::t_3112ce0a74739c 77-109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.51-trip",
+  "base_commit_sha": "edab804f343e4fa8e9de79bc2cd48a04bf6aff8c",
+  "prompts": {},
+  "sessions": {
+    "s_0fd6c4e3e95c09": {
+      "agent_id": {
+        "tool": "deepseekharness",
+        "id": "session-94cf2d30-4995-46fe-b345-d718d2966b82",
+        "model": "claude-opus-5.5"
+      },
+      "human_author": "r.shi <r.shi@trip.com>"
+    },
+    "s_57ac80e17b3e8f": {
+      "agent_id": {
+        "tool": "deepseekharness",
+        "id": "session-4cb06b52-e047-421f-9306-c9cda1f721bf",
+        "model": "claude-opus-5.5"
+      },
+      "human_author": "r.shi <r.shi@trip.com>"
+    }
+  }
+}
