@@ -37,6 +37,7 @@ import { FileModelSettingsStore } from './model-settings.ts'
 import { KiroModelCatalog } from './model-catalog.ts'
 import { assertKiroProfileArn } from './profile.ts'
 import { assertKiroRegion } from './region.ts'
+import { refreshKiroIdentity } from './identity.ts'
 import { parseProxyUrl, postForm, postJson } from './transport.ts'
 import { registerWebApi } from './web.ts'
 import { KiroUsageService } from './usage.ts'
@@ -464,6 +465,10 @@ export function apply(ctx: Context, config: Config): void {
     }
   }
   options()
+  // Kiro's identity gate moves with Kiro's releases, not with ours. Follow the
+  // update feed once per load, through the same egress as Kiro traffic, and
+  // keep presenting the pinned release until it answers.
+  void refreshKiroIdentity(options().proxyUrl)
 
   const managedDirectory = credentialDirectory()
   const tokenResolver = (connection: KiroConnectionOptions, signal: AbortSignal) =>

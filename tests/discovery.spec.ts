@@ -9,6 +9,7 @@ import {
   parseEffortSchema,
   parseMaxTokensBounds,
 } from '../src/discovery.ts'
+import { kiroUserAgent } from '../src/identity.ts'
 
 const connection = {
   region: 'us-east-1',
@@ -116,7 +117,7 @@ describe('Kiro model discovery', () => {
     expect(url).toContain('https://codewhisperer.us-east-1.amazonaws.com/ListAvailableModels?')
     expect(url).toContain('profileArn=arn%3Aaws%3Acodewhisperer')
     expect(headers.authorization).toBe('Bearer access')
-    expect(headers['user-agent']).toContain('KiroIDE')
+    expect(headers['user-agent']).toBe(kiroUserAgent())
     expect(proxy).toBe('http://proxy.example:8080')
     expect(discovery.current(connection)?.[0]?.id).toBe('claude-opus-4.8')
   })

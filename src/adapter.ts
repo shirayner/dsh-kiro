@@ -42,6 +42,7 @@ import { post } from './transport.ts'
 import { toolNames } from './tool-names.ts'
 import { translate } from './translate.ts'
 import type { KiroToken } from './auth.ts'
+import { kiroUserAgent } from './identity.ts'
 import { profileRegion } from './profile.ts'
 
 /** Default maximum idle interval while an outstanding provider read is pending. */
@@ -50,8 +51,6 @@ export const DEFAULT_STREAM_IDLE_TIMEOUT_MS = 300_000
 export const DEFAULT_CONTEXT_WINDOW = 200_000
 /** Timeout code distinguishing watchdog expiry from caller cancellation. */
 const STREAM_IDLE_TIMEOUT_CODE = 'LLM_STREAM_IDLE_TIMEOUT'
-/** User agent Kiro's own IDE sends; the service gates model access on it. */
-const KIRO_USER_AGENT = 'aws-sdk-js/3.738.0 KiroIDE'
 const CODEWHISPERER_TARGET = 'AmazonCodeWhispererStreamingService.GenerateAssistantResponse'
 
 const OFF = ReasoningEffortId('off')
@@ -605,6 +604,7 @@ export class KiroAdapter extends LlmAdapter {
       images,
       names,
     ))
+    const identity = kiroUserAgent()
     const response = await post({
       url,
       headers: {
@@ -615,12 +615,12 @@ export class KiroAdapter extends LlmAdapter {
         ...kiroTokenTypeHeaders(token),
         'x-amzn-kiro-agent-mode': 'vibe',
         // Kiro authorizes by client identity: a request whose `user-agent`
-        // does not name its IDE is refused with "Your subscription does not
-        // support this application", so this header is a protocol constant
-        // rather than attribution. Harness attribution therefore travels in
-        // `x-amz-user-agent`, which the service passes through.
-        'user-agent': KIRO_USER_AGENT,
-        'x-amz-user-agent': `${KIRO_USER_AGENT} ${userAgent()}`,
+        // names no IDE release is refused by the version gate (see
+        // `identity.ts`), so this header carries the release Kiro's updater
+        // publishes rather than attribution. Harness attribution therefore
+        // travels in `x-amz-user-agent`, which the service passes through.
+        'user-agent': identity,
+        'x-amz-user-agent': `${identity} ${userAgent()}`,
       },
       body,
       signal,

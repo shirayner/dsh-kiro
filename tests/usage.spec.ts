@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import type { KiroConnectionOptions } from '../src/adapter.ts'
+import { kiroUserAgent } from '../src/identity.ts'
 import { KiroUsageService, parseKiroUsage } from '../src/usage.ts'
 
 const connection = {
@@ -69,7 +70,7 @@ describe('Kiro usage', () => {
     expect(url).toContain('resourceType=AGENTIC_REQUEST')
     expect(url).not.toContain('profileArn=')
     expect(headers.authorization).toBe('Bearer access')
-    expect(headers['x-amz-user-agent']).toContain('KiroIDE')
+    expect(headers['x-amz-user-agent']).toBe(kiroUserAgent())
     expect(proxy).toBe('http://proxy.example:8080')
     expect(service.current({ ...connection, profileArn: undefined })).toMatchObject({ plan: 'Kiro Pro' })
   })
