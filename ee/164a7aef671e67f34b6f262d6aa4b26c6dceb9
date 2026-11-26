@@ -1,0 +1,43 @@
+src/discovery.ts
+  s_9d342d1cc97d08::t_4c754844e4870c 7
+lib/types/identity.d.ts
+  s_9d342d1cc97d08::t_c82f3b392f9fd4 1-25
+tests/identity.spec.ts
+  s_9d342d1cc97d08::t_58fd03fbc0da76 1-28
+lib/types/index.d.ts
+  s_9d342d1cc97d08::t_c82f3b392f9fd4 106,118
+src/usage.ts
+  s_9d342d1cc97d08::t_1dbefef316d039 6
+src/login.ts
+  s_9d342d1cc97d08::t_62193e06393480 10
+  s_9d342d1cc97d08::t_fbabf7d0c2486c 495-496
+tests/usage.spec.ts
+  s_9d342d1cc97d08::t_80d5f25b723db0 3
+  s_9d342d1cc97d08::t_df5582c2ecf4ee 73
+tests/discovery.spec.ts
+  s_9d342d1cc97d08::t_d00f95f02511fc 12
+  s_9d342d1cc97d08::t_bc004812512e04 120
+lib/index.js
+  s_9d342d1cc97d08::t_54d704947d5e37 1401-1427,1866-1867,2905-2906,3745-3746
+src/identity.ts
+  s_9d342d1cc97d08::t_153d2f1cbec442 1-27
+src/adapter.ts
+  s_9d342d1cc97d08::t_f9f8f58daff7b3 45
+  s_9d342d1cc97d08::t_c4a9dfc63cdf54 617-619
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "ee164a7aef671e67f34b6f262d6aa4b26c6dceb9",
+  "prompts": {},
+  "sessions": {
+    "s_9d342d1cc97d08": {
+      "agent_id": {
+        "tool": "deepseekharness",
+        "id": "session-864fbc0b-f8e8-4f92-855a-7ecf14b85e28",
+        "model": "deepseek-v4.1-flash"
+      },
+      "human_author": "r.shi <r.shi@trip.com>"
+    }
+  }
+}
