@@ -14,6 +14,7 @@ import { resolveAdapterOptions } from '../src/index.ts'
 import { credentialDirectory } from '../src/paths.ts'
 import { post, postForm, postJson } from '../src/transport.ts'
 import type { KiroToken } from '../src/auth.ts'
+import { kiroUserAgent } from '../src/identity.ts'
 
 const PROMPT = 'Write a detailed 800 word essay about the history of the bicycle.'
 
@@ -57,8 +58,8 @@ describe.runIf(process.env.KIRO_LIVE === '1')('live Kiro output-cap placement', 
           authorization: `Bearer ${token.accessToken}`,
           ...kiroTokenTypeHeaders(token),
           'x-amzn-kiro-agent-mode': 'vibe',
-          'user-agent': 'aws-sdk-js/3.738.0 KiroIDE',
-          'x-amz-user-agent': 'aws-sdk-js/3.738.0 KiroIDE',
+          'user-agent': kiroUserAgent(),
+          'x-amz-user-agent': kiroUserAgent(),
         },
         body: JSON.stringify(body),
         signal,

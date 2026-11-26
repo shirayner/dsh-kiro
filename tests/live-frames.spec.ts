@@ -19,6 +19,7 @@ import { resolveAdapterOptions } from '../src/index.ts'
 import { credentialDirectory } from '../src/paths.ts'
 import { serializeRequest } from '../src/serialize.ts'
 import { post, postForm, postJson } from '../src/transport.ts'
+import { kiroUserAgent } from '../src/identity.ts'
 
 describe.runIf(process.env.KIRO_LIVE === '1')('live Kiro frame capture', () => {
   it('reports frame names and payload key shapes', async () => {
@@ -85,8 +86,8 @@ describe.runIf(process.env.KIRO_LIVE === '1')('live Kiro frame capture', () => {
         authorization: `Bearer ${token.accessToken}`,
         ...kiroTokenTypeHeaders(token),
         'x-amzn-kiro-agent-mode': 'vibe',
-        'user-agent': 'aws-sdk-js/3.738.0 KiroIDE',
-        'x-amz-user-agent': 'aws-sdk-js/3.738.0 KiroIDE',
+        'user-agent': kiroUserAgent(),
+        'x-amz-user-agent': kiroUserAgent(),
       },
       body: JSON.stringify(body),
       signal,

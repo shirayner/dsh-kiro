@@ -20,9 +20,10 @@ import { resolveAdapterOptions } from '../src/index.ts'
 import { credentialDirectory } from '../src/paths.ts'
 import { post, postForm, postJson } from '../src/transport.ts'
 import type { KiroToken } from '../src/auth.ts'
+import { kiroUserAgent } from '../src/identity.ts'
 
 const CODEWHISPERER_TARGET = 'AmazonCodeWhispererStreamingService.GenerateAssistantResponse'
-const AGENT = 'aws-sdk-js/3.738.0 KiroIDE'
+const AGENT = kiroUserAgent()
 
 interface Variant {
   label: string
