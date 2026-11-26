@@ -1,0 +1,53 @@
+lib/types/identity.d.ts
+  s_9d342d1cc97d08::t_c82f3b392f9fd4 1-9,11,18,31,37,39,45
+  s_9d342d1cc97d08::t_ffe0a17e685132 10,12-17,19-30,32-36,38,40-44,46
+tests/identity.spec.ts
+  s_9d342d1cc97d08::t_f097f9cb75a0e7 1,6-8,16-39,43-81,84-90,93-99
+  s_9d342d1cc97d08::t_58fd03fbc0da76 2-5,9-15,40-42,82-83,91-92,100-101
+src/discovery.ts
+  s_9d342d1cc97d08::t_2899902444da92 7
+  s_9d342d1cc97d08::t_e77e8b8d030fd5 100-101
+src/index.ts
+  s_9d342d1cc97d08::t_d2ac165ca1ebda 40
+  s_9d342d1cc97d08::t_b449bd0d84c019 468-471
+src/identity.ts
+  s_9d342d1cc97d08::t_153d2f1cbec442 1-9,11,18,34,36,44,55,57,63
+  s_9d342d1cc97d08::t_b3bc55435e4d68 10,12-17,19-33,35,37-43,45-54,56,58-62,64-88
+tests/usage.spec.ts
+  s_9d342d1cc97d08::t_07d2e713de1724 3
+  s_9d342d1cc97d08::t_f45163f238fa1c 73
+tests/discovery.spec.ts
+  s_9d342d1cc97d08::t_dee85c61365f81 120
+  s_9d342d1cc97d08::t_61f5715c721f70 12
+src/login.ts
+  s_9d342d1cc97d08::t_08b00d0aba6d78 10
+  s_9d342d1cc97d08::t_1911dc8b6984a6 495-496
+src/adapter.ts
+  s_9d342d1cc97d08::t_c4a9dfc63cdf54 618
+  s_9d342d1cc97d08::t_831c784ed47bad 619-621
+  s_9d342d1cc97d08::t_0044b4d3e33acd 45
+  s_9d342d1cc97d08::t_fe426352306bca 607
+  s_9d342d1cc97d08::t_f14d90ee4121d6 622-623
+lib/index.js
+  s_9d342d1cc97d08::t_54d704947d5e37 1401,1404,1406,1410,1412,1415,1445
+  s_9d342d1cc97d08::t_ca2ba72cb6eabd 1402-1403,1405,1407-1409,1411,1413-1414,1416-1444,1875,1885-1886,2924-2925,3764-3765,5798-5799,6150
+src/usage.ts
+  s_9d342d1cc97d08::t_4cbefb672f0760 237-238
+  s_9d342d1cc97d08::t_20adf04f1131a1 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "a44fb5b4572e19e90228af7998b94b21ca0953ed",
+  "prompts": {},
+  "sessions": {
+    "s_9d342d1cc97d08": {
+      "agent_id": {
+        "tool": "deepseekharness",
+        "id": "session-864fbc0b-f8e8-4f92-855a-7ecf14b85e28",
+        "model": "deepseek-v4.1-flash"
+      },
+      "human_author": null
+    }
+  }
+}
